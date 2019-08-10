@@ -41,5 +41,36 @@ namespace LeetCodeTest
         }
 
         #endregion
+
+        /// <summary>
+        /// Best Time to Buy and Sell Stock II
+        /// </summary>
+        #region BestTimetoBuyandSellStockII
+
+        [TestMethod]
+        public void MaxProfitTest1()
+        {
+            int[] prices = { 7, 1, 5, 3, 6, 4 };
+
+            Assert.AreEqual(7, _array.MaxProfit(prices));
+        }
+
+        [TestMethod]
+        public void MaxProfitTest2()
+        {
+            int[] prices = { 1, 2, 3, 4, 5 };
+
+            Assert.AreEqual(4, _array.MaxProfit(prices));
+        }
+
+        [TestMethod]
+        public void MaxProfitTest3()
+        {
+            int[] prices = { 7, 6, 4, 3, 1 };
+
+            Assert.AreEqual(0, _array.MaxProfit(prices));
+        }
+
+        #endregion
     }
 }

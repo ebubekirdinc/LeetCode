@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace LeetCode
 {
@@ -62,6 +63,25 @@ namespace LeetCode
             }
 
             return nums;
+        }
+
+        /// <summary>
+        /// Best Time to Buy and Sell Stock II
+        /// </summary>
+        /// <param name="prices"></param>
+        /// <returns></returns>
+        public int MaxProfit(int[] prices)
+        {
+            int profit = 0;
+            for (int i = 1; i < prices.Count(); i++)
+            {
+                if (prices[i] > prices[i - 1])
+                {
+                    profit += prices[i] - prices[i - 1];
+                }
+            }
+
+            return profit;
         }
 
         /// <summary>
