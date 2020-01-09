@@ -1,44 +1,76 @@
-using LeetCode;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
+using Xunit;
 
-namespace LeetCodeTest
+namespace LeetCode.Test
 {
-    [TestClass]
-    public class ArrayTest
+    public class ArrayProblemsTests
     {
-        ArrayProblems _array = new ArrayProblems();
-         
+        #region RemoveDuplicatesFromSortedArray
+
+        [Theory]
+        [MemberData(nameof(GetDataForRemoveDuplicatesFromSortedArray))]
+        public void RemoveDuplicatesFromSortedArray(int[] nums, int[] expected)
+        {
+            ArrayProblems array = new ArrayProblems();
+            int[] result = array.RemoveDuplicatesFromSortedArray(nums);
+
+            Assert.Equal(expected, result);
+        }
+
+        public static IEnumerable<object[]> GetDataForRemoveDuplicatesFromSortedArray =>
+            new List<object[]>
+            {
+                new object[] { new object[] { 0, 0, 1, 1, 1, 2, 2, 3, 3, 4 }, new object[] { 0, 1, 2, 3, 4, 2, 2, 3, 3, 4 } },
+                new object[] { new object[] { 1, 1, 2 }, new object[] { 1, 2, 2 } },
+                new object[] { new object[] { -1, 0, 0, 0, 0, 3, 3 }, new object[] { -1, 0, 3, 0, 0, 3, 3 } },
+
+            };
+
+
+        #endregion
+
+        #region BestTimetoBuyAndSellStock2
+
+        [Theory]
+        [MemberData(nameof(GetDataForBestTimetoBuyAndSellStock2))]
+        public void BestTimetoBuyAndSellStockII(int[] nums, int expected)
+        {
+            ArrayProblems array = new ArrayProblems();
+
+            Assert.Equal(expected, array.BestTimetoBuyAndSellStock2(nums));
+        }
+
+        public static IEnumerable<object[]> GetDataForBestTimetoBuyAndSellStock2 =>
+            new List<object[]>
+            {
+                new object[] { new object[] { 7, 1, 5, 3, 6, 4 },  7},
+                new object[] { new object[] { 1, 2, 3, 4, 5 }, 4 },
+                new object[] { new object[] { 7, 6, 4, 3, 1 }, 0 },
+
+            };
+
+        #endregion
 
         #region RotateArray
-        [TestMethod]
-        public void RotateArrayTest1()
-        {
-            int[] nums = { 1, 2, 3, 4, 5, 6, 7 };
-            int k = 3;
-            int[] result = { 5, 6, 7, 1, 2, 3, 4 };
 
-            CollectionAssert.AreEqual(result, _array.Rotate(nums, k));
+        [Theory]
+        [MemberData(nameof(GetDataForRotateArray))]
+        public void RotateArray(int[] nums, int[] expected)
+        {
+            ArrayProblems array = new ArrayProblems();
+            int[] result = array.RemoveDuplicatesFromSortedArray(nums);
+
+            Assert.Equal(expected, result);
         }
 
-        [TestMethod]
-        public void RotateArrayTest2()
-        {
-            int[] nums = { -1, -100, 3, 99 };
-            int k = 2;
-            int[] result = { 3, 99, -1, -100 };
+        public static IEnumerable<object[]> GetDataForRotateArray =>
+            new List<object[]>
+            {
+                new object[] { new object[] { 1, 2, 3, 4, 5, 6, 7 }, new object[] { 5, 6, 7, 1, 2, 3, 4 } },
+                new object[] { new object[] { -1, -100, 3, 99 }, new object[] { 3, 99, -1, -100 } },
+                new object[] { new object[] { -1 }, new object[] { -1 } },
 
-            CollectionAssert.AreEqual(result, _array.Rotate(nums, k));
-        }
-
-        [TestMethod]
-        public void RotateArrayTest3()
-        {
-            int[] nums = { -1 };
-            int k = 2;
-            int[] result = { -1 };
-
-            CollectionAssert.AreEqual(result, _array.Rotate(nums, k));
-        }
+            };
 
         //[TestMethod]
         //public void RotateArrayTest4()
