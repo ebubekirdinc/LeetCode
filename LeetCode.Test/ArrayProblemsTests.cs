@@ -82,5 +82,28 @@ namespace LeetCode.Test
         //    CollectionAssert.AreEqual(result, _array.Rotate(nums, k));
         //}
         #endregion
+
+        #region ContainsDuplicate
+
+        [Theory]
+        [MemberData(nameof(GetDataForContainsDuplicate))]
+        public void ContainsDuplicate(int[] nums, bool expected)
+        {
+            ArrayProblems array = new ArrayProblems();
+            bool result = array.ContainsDuplicate(nums);
+
+            Assert.Equal(expected, result);
+        }
+
+        public static IEnumerable<object[]> GetDataForContainsDuplicate =>
+            new List<object[]>
+            {
+                new object[] { new object[] { 1, 2, 3, 1 },true },
+                new object[] { new object[] { 1, 2, 3, 4 },false },
+                new object[] { new object[] { 1, 1, 1, 3, 3, 4, 3, 2, 4, 2 },true },
+
+            };
+
+        #endregion
     }
 }

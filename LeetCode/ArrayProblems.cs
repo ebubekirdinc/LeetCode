@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 
 namespace LeetCode
@@ -76,11 +77,32 @@ namespace LeetCode
             }
 
             for (int i = 0; i < nums.Length; i++)
-            { 
+            {
                 nums[i] = nums2[i];
             }
 
             return nums;
         }
+
+        public bool ContainsDuplicate(int[] nums)
+        {
+            // Linq solution
+            var newNums = nums.Distinct();
+
+            return newNums.Count() != nums.Length;
+
+            // nonLinq solution Time limit exeed
+            //for (int i = 0; i < nums.Length; i++)
+            //{
+            //    for (int j = i+1; j < nums.Length; j++)
+            //    {
+            //        if (nums[i] == nums[j])
+            //            return true;
+            //    }
+            //}
+
+            //return false; 
+        }
     }
 }
+ 
