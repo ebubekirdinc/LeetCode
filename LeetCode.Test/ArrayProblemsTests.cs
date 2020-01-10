@@ -55,10 +55,10 @@ namespace LeetCode.Test
 
         [Theory]
         [MemberData(nameof(GetDataForRotateArray))]
-        public void RotateArray(int[] nums, int[] expected)
+        public void RotateArray(int[] nums, int steps, int[] expected)
         {
             ArrayProblems array = new ArrayProblems();
-            int[] result = array.RemoveDuplicatesFromSortedArray(nums);
+            int[] result = array.RotateArray(nums, steps);
 
             Assert.Equal(expected, result);
         }
@@ -66,9 +66,9 @@ namespace LeetCode.Test
         public static IEnumerable<object[]> GetDataForRotateArray =>
             new List<object[]>
             {
-                new object[] { new object[] { 1, 2, 3, 4, 5, 6, 7 }, new object[] { 5, 6, 7, 1, 2, 3, 4 } },
-                new object[] { new object[] { -1, -100, 3, 99 }, new object[] { 3, 99, -1, -100 } },
-                new object[] { new object[] { -1 }, new object[] { -1 } },
+                new object[] { new object[] { 1, 2, 3, 4, 5, 6, 7 },3 , new object[] { 5, 6, 7, 1, 2, 3, 4 } },
+                new object[] { new object[] { -1, -100, 3, 99 },2 , new object[] { 3, 99, -1, -100 } },
+                new object[] { new object[] { -1 },2 , new object[] { -1 } },
 
             };
 

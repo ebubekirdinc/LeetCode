@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Linq.Expressions;
 
 namespace LeetCode
 {
@@ -17,7 +18,6 @@ namespace LeetCode
                 //return 0;
                 return nums1;
             }
-
 
             int j = 0;
             int swap = nums[0];
@@ -62,37 +62,23 @@ namespace LeetCode
         /// </summary>
         /// <param name="nums"></param>
         /// <param name="k"></param>
-        public int[] Rotate(int[] nums, int k)
+        public int[] RotateArray(int[] nums, int k)
         {
             if (nums.Length == 1)
                 return nums;
 
-            int swap = 0;
-            int swap1 = 0;
-            int j = 0;
-            int s = 0;
+            int[] nums2 = new int[nums.Length];
+
             for (int i = 0; i < nums.Length; i++)
             {
-                if (s + k < nums.Length)
-                {
-                    swap1 = nums[s + k];
-                    nums[s + k] = swap == 0 ? nums[s] : swap;
-                    swap = swap1;
-                    s = s + k;
-                }
-                else
-                {
-                    swap1 = j == 0 ? nums[s + k - nums.Length] : nums[s + k];
-                    nums[s + k - nums.Length] = swap == 0 ? nums[s] : swap;
-                    swap = swap1;
-                    s = j == 0 ? s + k - nums.Length : s + k;
-                    j++;
-                }
-
-
-
+                int index = (i + k) % nums.Length;
+                nums2[index] = nums[i];
             }
 
+            for (int i = 0; i < nums.Length; i++)
+            { 
+                nums[i] = nums2[i];
+            }
 
             return nums;
         }

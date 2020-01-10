@@ -9,11 +9,11 @@ namespace LeetCode
             //int[] nums = { 0, 0, 1, 1, 1, 2, 2, 3, 3, 4 };
             //int[] nums = { 1, 2 };
             //int[] nums = { 1, 1, 2 };
-            int[] nums = { 1, 2, 3, 4, 5, 6, 7 };
+            int[] nums = { 1,2,3,4 };
             int[] prices = { 7, 1, 5, 3, 6, 4 };
 
             ArrayProblems array = new ArrayProblems();
-            array.Rotate(nums, 3);
+            array.RotateArray(nums, 2);
 
             //Console.WriteLine(sl.RemoveDuplicates(nums).Count());
             //Console.WriteLine("--------------");
