@@ -83,7 +83,11 @@ namespace LeetCode
 
             return nums;
         }
-
+        /// <summary>
+        /// Given an array of integers, find if the array contains any duplicates.
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <returns></returns>
         public bool ContainsDuplicate(int[] nums)
         {
             // Linq solution
@@ -103,6 +107,30 @@ namespace LeetCode
 
             //return false; 
         }
+
+        /// <summary>
+        /// Given a non-empty array of integers, every element appears twice except for one. Find that single one.
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <returns></returns>
+        public int SingleNumber(int[] nums)
+        {
+            var singles = nums.GroupBy(x => x).FirstOrDefault(x => x.Count() == 1);
+
+            return singles.Key;
+        }
+
+        /// <summary>
+        /// Given two arrays, write a function to compute their intersection.
+        /// </summary>
+        /// <param name="nums1"></param>
+        /// <param name="nums2"></param>
+        /// <returns></returns>
+        public int[] Intersect(int[] nums1, int[] nums2)
+        {
+            var intersection = nums1.Concat(nums2).Except(nums1);
+
+            return intersection.ToArray();
+        }
     }
-}
- 
+}/

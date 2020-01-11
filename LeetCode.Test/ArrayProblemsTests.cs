@@ -105,5 +105,27 @@ namespace LeetCode.Test
             };
 
         #endregion
+
+        #region MyRegion
+
+        [Theory]
+        [MemberData(nameof(GetDataForSingleNumber))]
+        public void SingleNumber(int[] nums, int expected)
+        {
+            ArrayProblems array = new ArrayProblems();
+            int result = array.SingleNumber(nums);
+
+            Assert.Equal(expected, result);
+        }
+
+        public static IEnumerable<object[]> GetDataForSingleNumber =>
+            new List<object[]>
+            {
+                new object[] { new object[] { 2, 2, 1 },1 },
+                new object[] { new object[] { 4, 1, 2, 1, 2 },4 },
+
+            };
+
+        #endregion
     }
 }
